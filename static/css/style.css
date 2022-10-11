@@ -1,0 +1,56 @@
+:root {
+    --title: #333;
+    --white: #fff;
+    --grey: #eeeeee;
+    --dark-grey: #858585;
+    --blue-color: #2196f3;
+  }
+  
+  /* General Syling */
+  
+  * {
+    font-family: "Poppins", sans-serif;
+  }
+  
+  body {
+    background: var(--blue-color);
+  }
+
+  .head{
+    font-weight: 900;
+    margin-left: 540px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    /* gap: 37px; */
+    align-items: center;
+    right: 500px;
+  }
+
+  h3{
+    font-size:larger;
+  }
+
+
+  .line{
+    border-top: 2px solid #333;
+  }
+
+  .buttons{
+    margin-left: 50%;
+  }
+
+  #out{
+    margin: 30px 0 0;
+    padding: 12px 20px;
+    font-size: calc(18 / 16 * 1rem);
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  
+  #out:hover{
+    background-color: azure;
+    font-weight: 650;
+  }

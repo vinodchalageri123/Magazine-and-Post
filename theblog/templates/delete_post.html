@@ -1,0 +1,27 @@
+{% include 'authentication/base.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete the Post</title>
+</head>
+<body>
+{% if user.is_authenticated %}
+    {% if user.id == post.author.id %}
+        <h3> Delete : {{ post.title }} </h3><br/><br/>
+            <div class="form-group">
+              <form method="POST">
+                {% csrf_token %}
+                <strong> Are you sure?</strong><br/><br/>
+                <button class="btn btn-secondary"> Delete</button>
+              </form>
+            </div>
+    {% else %}
+            Go back.... Error page
+    {% endif %}
+{% else %}
+    you cannot access this
+{% endif %}
+<br/><br/>
+ <a href="{% url 'home' %}"> <button class="btn btn-success"> Main Page</button></a>
+</body>
+</html>

@@ -1,0 +1,182 @@
+:root {
+    --title: #333;
+    --white: #fff;
+    --grey: #eeeeee;
+    --dark-grey: #858585;
+    --blue-color: #2196f3;
+  }
+  
+  /* General Syling */
+  
+  * {
+    font-family: "Poppins", sans-serif;
+  }
+  
+  body {
+    background: var(--blue-color);
+  }
+
+  .head{
+    margin-left: 520px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    gap: 370px;
+    align-items: center;
+    right: 500px;
+  }
+
+  /* .heading{
+    margin-left: 300px;
+    
+  } */
+
+  .line{
+    border-top: 2px solid #333;
+  }
+
+  .out{
+    margin: 30px 0 0;
+    padding: 12px 20px;
+    font-size: calc(18 / 16 * 1rem);
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 500;
+  }
+
+  .out:hover{
+    background-color: azure;
+    font-weight: 650;
+ }
+  /* Form Sign-Up */
+  
+  .box {
+    display: flex;
+    padding: 40px;
+    max-width: 500px;
+    border-radius: 20px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--white);
+    margin: 10px auto 0 auto;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.199);
+  }
+  
+  .box .title {
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-size: calc(35 / 16 * 1rem);
+  }
+  
+  input {
+    outline: none;
+    margin: 5px 0;
+    cursor: pointer;
+    font-weight: 500;
+    border-radius: 10px;
+    color: var(--dark-grey);
+    background: var(--grey);
+    padding: 10px 3px 3px 5px;
+    border: var(--grey) 3px solid;
+    font-size: calc(18 / 16 * 1rem);
+  }
+
+
+
+  .h3:hover{
+    margin-left: 5px;
+    text-decoration: underline;
+  }
+  
+  /* Button */
+  
+  .submit-btn {
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    margin: 30px 0 0;
+    padding: 15px 20px;
+    border-radius: 10px;
+    color: var(--white);
+    transition: all 0.3s ease;
+    background: var(--blue-color);
+    font-size: calc(18 / 16 * 1rem);
+  }
+  
+  .submit-btn:hover {
+    background: #1b84da;
+  }
+  
+  
+  /* Animation / Hover state */
+  
+  input:not(:placeholder-shown) + .label-text,
+  input:focus + .label-text {
+    top: 20px;
+    left: 13px;
+    color: var(--blue-color);
+    transform: translateY(-10px);
+    font-size: calc(14 / 16 * 1rem);
+  }
+  
+  /* MEDIA QUERY */
+  
+  @media (max-width: 38.125rem) {
+    /* Form Sign-Up */
+  
+    .box {
+      padding: 50px;
+      max-width: 400px;
+      margin: 100px auto 0 auto;
+    }
+  
+    .box .title {
+      margin-bottom: 20px;
+      font-size: calc(35 / 16 * 1rem);
+    }
+  
+    input {
+        margin: 10px 0;
+        padding: 10px 3px 3px 5px;
+      font-size: calc(18 / 16 * 1rem);
+    }
+  
+    
+  }
+  
+  @media (max-width: 29.375rem) {
+    /* Form Sign-Up */
+  
+    input {
+      margin: 10px 0;
+      padding: 10px 3px 3px 5px;
+      font-size: calc(18 / 16 * 1rem);
+    }
+  }
+  
+  @media (max-width: 26.25rem) {
+    /* Form Sign-Up */
+  
+    .box {
+      padding: 30px;
+      max-width: 280px;
+      margin: 100px auto 0 auto;
+    }
+  
+    .box .title {
+      margin-bottom: 20px;
+      font-size: calc(30 / 16 * 1rem);
+    }
+  
+    input {
+      margin: 10px 0;
+      padding: 10px 3px 3px 5px;
+      font-size: calc(18 / 16 * 1rem);
+    }
+  
+  }
+  a {
+    text-decoration: none;
+    color: #333;
+  }

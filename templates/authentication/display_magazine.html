@@ -1,0 +1,30 @@
+{% include 'authentication/base.html' %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>List Of Magazines</title>
+</head>
+<body>
+{% block content %}
+
+
+        <div class="card">
+            <div class="card-header">
+                {{ magazine }}
+            </div>
+
+
+    {% for magazine in magazine_list %}
+                Magazine_Name :   {{ magazine.magazine_name }}<br/>
+                Publication_Date :   {{ magazine.published_at }}<br/>
+                Magazine_Copy : {{ magazine.magazine_copy }}<br/>
+                {% for user in magazine.uploaded_by.all %}
+                    Uploaded_By :   {{ user }} <br/>
+                {% endfor %}
+                <br/>
+    {% endfor %}
+        </div>
+
+
+{% endblock %}
+</body>

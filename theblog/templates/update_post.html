@@ -1,0 +1,30 @@
+{% include 'authentication/base.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit blog post</title>
+</head>
+<body>
+{% if user.is_authenticated %}
+    {% if user.id == post.author.id %}
+        <h1> Update Post</h1>
+        <br/><br/>
+        <div class="form-group">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <button class="btn btn-secondary"> Update</button>
+            </form>
+        </div>
+    {% else %}
+            you cannot access this....<br/><br/>
+    {% endif %}
+{% else %}
+ You cannot access this<br/><br/>
+{% endif %}
+<br/>
+<a href="{% url 'post-display' %}"> <button class="btn btn-success"> Back </button></a><br/><br/>
+ <a href="{% url 'home' %}"> <button class="btn btn-success"> Main Page</button></a>
+</body>
+</html>

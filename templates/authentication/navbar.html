@@ -1,0 +1,76 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{% url 'home' %}">My Club</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+
+
+<!--          <li class="nav-item active">-->
+
+<!--                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">-->
+<!--                        Category-->
+<!--                      </a>-->
+<!--                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+
+<!--                          <a class="dropdown-item" href="#"> hi </a>-->
+<!--                      </div>-->
+<!--          </li>-->
+
+
+
+
+
+          {% if user.is_authenticated %}
+
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'add-magazine' %}">Add Magazine</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'list-magazines' %}">List Magazines</a>
+              </li>
+              <li class="nav-item active">
+              <a class="nav-link" href="{% url 'magazine-pdf' %}">Magazine pdf files</a>
+            </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'add-post' %}">Adding Posts</a>
+              </li>
+               <li class="nav-item active">
+                <a class="nav-link" href="{% url 'post-display' %}">Post Display</a>
+              </li>
+
+
+
+                <li class="nav-item active">
+                <a class="nav-link" href="{% url 'logout-user' %}">Logout</a>
+              </li>
+          {% else %}
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'list-magazines' %}">List Magazines</a>
+              </li>
+              <li class="nav-item active">
+              <a class="nav-link" href="{% url 'magazine-pdf' %}">Magazine pdf files</a>
+            </li>
+             <li class="nav-item active">
+                <a class="nav-link" href="{% url 'post-display' %}">Post Display</a>
+              </li>
+             <li class="nav-item active">
+                <a class="nav-link" href="{% url 'register-user' %}">Register</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link " href="{% url 'login-user' %}">Login</a>
+            </li>
+          {% endif %}
+      </ul>
+      <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+              <a class="nav-link ">
+                  {{ user.first_name }}
+                  {{ user.last_name }}
+              </a>
+            </li>
+      </ul>
+    </div>
+  </nav>

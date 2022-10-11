@@ -1,0 +1,22 @@
+{% include 'authentication/base.html' %}
+{% block content %}
+{% if user.is_authenticated %}
+<h1> Add Post</h1>
+<br/>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button class="btn btn-secondary">Post</button><br/><br/>
+</form>
+<script>
+    var name = "{{ user.id }}";
+    document.getElementById("vinod").value = name;
+</script>
+
+{% else %}
+    You cannot access this URL
+{% endif %}
+ <a href="{% url 'home' %}"> <button class="btn btn-success"> Main Page</button></a>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% include 'authentication/base.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add the Magazine</title>
+</head>
+<body>
+{% block content %}
+    <center>
+        <h1> Add Magazine to database </h1>
+        {% if submitted %}
+            <h2> The form is submitted successfully</h2>
+
+        {% else %}
+            <form action = "" method="POST">
+                {% csrf_token %}
+
+                {{ form.as_p }}
+
+                <input type="submit" value="Add" class="btn-btn-secondary">
+
+
+            </form>
+
+
+
+        </center>
+    {% endif %}
+
+{% endblock %}
+
+</body>
+</html>

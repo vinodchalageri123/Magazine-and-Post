@@ -1,0 +1,22 @@
+{% include 'authentication/base.html' %}
+{% block content %}
+
+<h1>Register</h1>
+
+<br/><br/>
+
+
+        <form action="{% url 'register-user' %}" method = POST>
+            {% csrf_token %}
+
+                {{ form.as_p }}
+<br/><br/>
+            <button type="submit" class="btn btn-primary">Register
+            </button>
+
+
+        </form>
+
+<br/><br/>
+
+{% endblock %}

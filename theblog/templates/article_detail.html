@@ -1,0 +1,72 @@
+{% include 'authentication/base.html' %}
+<title> Detailed Views of Posts/Articles</title>
+
+<h1> {{ post.title }}- {{ post.author.id }}</h1>
+<small> By: {{ post.author }} -
+        {{ post.post_date }}  -
+    {% if user.is_authenticated %}
+        {% if user.id == post.author.id %}
+            <a href="{% url 'update-post' post.pk %}"> Edit</a>
+            -
+            <a href="{% url 'delete-post' post.pk %}"> Delete</a>
+        {% endif %}
+    {% endif %}
+
+</small><br/>
+<hr>
+<br/>
+{% if post.header_image %}
+    <img src="{{ post.header_image.url }}">
+{% endif %}
+<br/><br/>
+{{ post.body|safe }}
+
+
+
+
+<br/><br/>
+
+<br/>
+<br/>
+<form action="{% url 'like_post' post.pk %}" method="POST">
+    {% csrf_token %}
+    {% if user.is_authenticated %}
+        {% if liked %}
+            <button type="submit", name="post_id", value="{{ post.id }}", class="btn btn-danger btn-sm">UnLike</button>
+        {% else %}
+            <button type="submit", name="post_id", value="{{ post.id }}", class="btn btn-primary btn-sm"> Like</button>
+
+        {% endif %}
+    {% else %}
+    <small> <a class="nav-link " href="{% url 'login-user' %}">Login to like</a></small>
+    {% endif %}
+    - {{ total_likes }} Likes
+</form>
+<br/>
+<hr>
+<h2> Comments..</h2>
+<br/>
+
+{% if not post.comments.all %}
+    No comments Yet... <a href="{% url 'add-comment' post.pk %}" > Add One</a>
+{% else %}
+<a href="{% url 'add-comment' post.pk %}"> Add Comment </a><br/><br/>
+
+    {% for comment in post.comments.all %}
+        <strong >
+            {{ comment.name }} -
+            {{ comment.date_added }}
+        </strong>
+        <br/>
+        {{ comment.body }}
+<br/><br/>
+
+    {% endfor %}
+<!--        <a href="{% url 'add-comment' post.pk %}"> Add Comments</a><br/>-->
+{% endif %}
+<br/>
+<hr>
+<br/> <br/>  <br/><br/><br/><br/><br/>
+<a href="{% url 'post-display' %}"><button type="button" class="btn btn-primary">
+    Back</button></a><br/><br/>
+<a href="{% url 'home' %}"><button class="btn btn-success" type="button">Main Page</button></a>
